@@ -14,9 +14,10 @@ public partial class BarcodePage : ContentPage
     {
         foreach (var barcode in e.Results)
         {
+            cameraBarcodeReaderView.IsDetecting = false;
             Console.WriteLine($"Barcodes: {barcode.Format} -> {barcode.Value}");
             WeakReferenceMessenger.Default.Send<string>(barcode.Value);
-            //Shell.Current.GoToAsync("..");
+            await Shell.Current.GoToAsync("..");
         }
     }
 
