@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="InventarioMobileApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:InventarioMobileApp"
+    xmlns:views="clr-namespace:InventarioMobileApp.Views"
+    FlyoutBackgroundColor="LightGray"
+    Shell.ForegroundColor="Blue"
+    Shell.TabBarTitleColor="Blue">
+
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate views:MainPage}"
+        FlyoutItemIsVisible="False"
+        Icon="iconblank.png"
+        Route="MainPage"
+        Shell.FlyoutBehavior="Disabled"
+        Shell.NavBarIsVisible="False" />
+
+    <FlyoutItem Title="Home" Icon="homemenu.png">
+
+
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate views:HomePage}" Route="HomePage" />
+
+        </Tab>
+
+    </FlyoutItem>
+
+
+    <FlyoutItem Title="Upload" Icon="upload.png">
+        <Tab>
+            <ShellContent
+                ContentTemplate="{DataTemplate views:UploadPage}"
+                Route="UploadPage"
+                Shell.NavBarIsVisible="true" />
+        </Tab>
+
+    </FlyoutItem>
+
+    <FlyoutItem Title="Download" Icon="download.png">
+        <Tab>
+            <ShellContent
+                ContentTemplate="{DataTemplate views:DownloadPage}"
+                Route="DownloadPage"
+                Shell.NavBarIsVisible="true" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Cod. Barras" Icon="leitorcodbarras.png">
+        <Tab>
+            <ShellContent
+                ContentTemplate="{DataTemplate views:BarcodePage}"
+                Route="BarcodePage"
+                Shell.NavBarIsVisible="true" />
+
+        </Tab>
+    </FlyoutItem>
+
+
+
+</Shell>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

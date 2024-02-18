@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="InventarioMobileApp.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fa="clr-namespace:UraniumUI.Icons.FontAwesome;assembly=UraniumUI.Icons.FontAwesome"
+    xmlns:input="clr-namespace:InputKit.Shared.Controls;assembly=InputKit.Maui"
+    xmlns:m="clr-namespace:UraniumUI.Icons.MaterialIcons;assembly=UraniumUI.Icons.MaterialIcons"
+    xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+    xmlns:validation="clr-namespace:InputKit.Shared.Validations;assembly=InputKit.Maui"
+    xmlns:vm="clr-namespace:InventarioMobileApp.ViewModels"
+    x:DataType="vm:MainViewModel"
+    Shell.NavBarIsVisible="False">
+
+    <VerticalStackLayout Padding="20" VerticalOptions="Center">
+
+        <Image WidthRequest="80">
+            <Image.Source>
+                <FontImageSource
+                    FontFamily="FASolid"
+                    Glyph="{x:Static fa:Solid.User}"
+                    Color="Blue" />
+            </Image.Source>
+        </Image>
+
+
+        <input:FormView Spacing="15" SubmitCommand="{Binding LoginCommand}">
+            <material:TextField
+                Title="E-mail"
+                AllowClear="True"
+                Icon="{FontImageSource FontFamily=MaterialRegular,
+                                       Glyph={x:Static m:MaterialRegular.Email}}"
+                Text="{Binding Email}">
+                <validation:RequiredValidation Message="E-mail é obrigatório" />
+                <validation:RegexValidation Message="Endereço de e-mail inválido" Pattern="{x:Static input:AdvancedEntry.REGEX_EMAIL}" />
+            </material:TextField>
+
+            <material:TextField
+                Title="Password"
+                AllowClear="True"
+                Icon="{FontImageSource FontFamily=MaterialRegular,
+                                       Glyph={x:Static m:MaterialRegular.Key}}"
+                IsPassword="True"
+                Text="{Binding Password}">
+
+                <material:TextField.Attachments>
+                    <material:TextFieldPasswordShowHideAttachment />
+                </material:TextField.Attachments>
+                <validation:RequiredValidation Message="Senha é obrigatório" />
+            </material:TextField>
+
+            <!--<Button
+                input:FormView.IsSubmitButton="True"
+                FontAttributes="Bold"
+                Text="LOGIN"
+                BackgroundColor="Blue"
+                TextColor="White"/>-->
+
+            <Grid>
+                <Button
+                    input:FormView.IsSubmitButton="True"
+                    BackgroundColor="Blue"
+                    Text="Entrar"
+                    TextColor="White">
+                    <Button.Triggers>
+                        <DataTrigger
+                            Binding="{Binding LoginCommand.IsRunning}"
+                            TargetType="Button"
+                            Value="True">
+                            <Setter Property="Text" Value="" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+
+
+
+                <ActivityIndicator
+                    HorizontalOptions="Center"
+                    IsRunning="{Binding LoginCommand.IsRunning}"
+                    IsVisible="{Binding LoginCommand.IsRunning}"
+                    VerticalOptions="Center"
+                    Color="{StaticResource Primary}" />
+
+            </Grid>
+
+            <Button
+                BackgroundColor="White"
+                Text="1º Acesso, clique aqui"
+                TextColor="Blue" />
+        </input:FormView>
+
+    </VerticalStackLayout>
+
+</ContentPage>

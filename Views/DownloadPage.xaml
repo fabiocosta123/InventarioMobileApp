@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="InventarioMobileApp.Views.DownloadPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Download"
+    BackgroundColor="LightGray">
+
+    <VerticalStackLayout              
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+
+        <Label Margin="0,0,0,50" Text="Clique para baixar o arquivo" />
+        <!--<Grid>
+
+            <Button
+                Command="{Binding DownloadCommand}"
+                BackgroundColor="Blue"
+                Text="DOWNLOAD"
+                TextColor="White">
+                <Button.Triggers>
+                    <DataTrigger
+                        Binding="{Binding DownloadCommand.IsRunning}"
+                        TargetType="Button"
+                        Value="True">
+                        <Setter Property="Text" Value="" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
+
+            <ActivityIndicator
+                HorizontalOptions="Center"
+                IsRunning="{Binding DownloadCommand.IsRunning}"
+                IsVisible="{Binding DownloadCommand.IsRunning}"
+                VerticalOptions="Center"
+                Color="White" />
+
+        </Grid>-->
+        <HorizontalStackLayout Margin="0,0,0,40" Spacing="20"
+                               VerticalOptions="CenterAndExpand"
+                               HorizontalOptions="CenterAndExpand">
+            <ImageButton
+                BackgroundColor="LightGray"
+                Source="download.png"
+                WidthRequest="50"
+                Command="{Binding DownloadCommand}"/>
+
+            <!--<Button
+                BackgroundColor="LightGray"
+                Text="DOWNLOAD"
+                TextColor="Black">
+                <Button.Triggers>
+                    <DataTrigger
+                        Binding="{Binding DownloadCommand.IsRunning}"
+                        TargetType="Button"
+                        Value="True">
+                        <Setter Property="Text" Value="" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>-->
+
+            <ActivityIndicator
+                HorizontalOptions="Center"
+                IsRunning="{Binding DownloadCommand.IsRunning}"
+                IsVisible="{Binding DownloadCommand.IsRunning}"
+                VerticalOptions="Center"
+                Color="Blue" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

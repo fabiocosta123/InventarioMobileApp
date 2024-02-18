@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="InventarioMobileApp.Views.DetailProductPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+    xmlns:viewModel="clr-namespace:InventarioMobileApp.ViewModels"
+    Title="Detalhe do Produto">
+
+    <VerticalStackLayout Margin="20" Spacing="15">
+
+        <Label
+            FontSize="Large"
+            HorizontalOptions="Center"
+            Text="{Binding Model.Descricao}" />
+
+        <material:TextField
+            Title="Quantidade"
+            AllowClear="True"
+            Text="{Binding QuantidadeAtual}" />
+
+        <material:TextField
+            Title="Valor"
+            IsReadOnly="True"
+            Text="{Binding Model.valor}" />
+
+        <HorizontalStackLayout>
+            <ImageButton
+                Command="{Binding SalvarCommand}"
+                HeightRequest="32"
+                Source="confirm.svg" />
+            <ImageButton
+                Command="{Binding AlterarStatusCommand}"
+                HeightRequest="32"
+                Source="editar.svg" />
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>
