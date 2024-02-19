@@ -9,11 +9,11 @@ public partial class App : Application
 		MainPage = new AppShell();
 	}
 
-	//protected override async void OnStart()
-	//{
-	//	if (!string.IsNullOrEmpty(Preferences.Get("AccessToken", string.Empty)))
-	//		await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+	protected override async void OnStart()
+	{
+		if (!string.IsNullOrEmpty(Preferences.Get("AccessToken", string.Empty)))
+			await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
 
-	//	base.OnStart();
-	//}
+		base.OnStart();
+	}
 }

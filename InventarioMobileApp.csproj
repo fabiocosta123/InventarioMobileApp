@@ -38,6 +38,7 @@
 		<!-- App Icon -->
 		<!--<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#000000" />-->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg_android.svg" Color="#000000" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" />
+		<MauiIcon Include="Resources\AppIcon\appiconfg.svg" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#000000" BaseSize="208,208" />
@@ -54,6 +55,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\AppIcon\appiconfg.svg" />
+	  <None Remove="Resources\Images\addUser.png" />
 	  <None Remove="Resources\Images\confirm.svg" />
 	  <None Remove="Resources\Images\download.png" />
 	  <None Remove="Resources\Images\editar.svg" />
@@ -62,6 +65,7 @@
 	  <None Remove="Resources\Images\logo.jpg" />
 	  <None Remove="Resources\Images\phone.png" />
 	  <None Remove="Resources\Images\upload.png" />
+	  <None Remove="Resources\Images\user.png" />
 	  <None Remove="Resources\Images\whats.png" />
 	</ItemGroup>
 
@@ -94,6 +98,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\RegisterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\UploadPage.xaml">

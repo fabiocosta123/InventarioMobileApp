@@ -94,19 +94,25 @@ namespace InventarioMobileApp.ViewModels
 
                     var inventoryModel = _csvRepository.GetByBarcode(barCode);
 
-                    if(inventoryModel is null)
+                    if (inventoryModel is null)
                     {
-                        await Shell.Current.DisplayAlert("Atenção",$"Código {barCode} não cadastrado", "OK");
+                        await Shell.Current.DisplayAlert("Atenção", $"Código {barCode} não cadastrado", "OK");
                         return;
                     }
-                       
+
 
                     var parametros = new Dictionary<string, object>
                     {
                         { "Model", inventoryModel}
                     };
-
-                    await Shell.Current.GoToAsync(nameof(DetailProductPage), parametros);
+                    try
+                    {
+                        await Shell.Current.GoToAsync($"../{nameof(DetailProductPage)}", parametros);
+                    }
+                    catch(Exception ex) 
+                    {
+                        var msg = ex.Message;
+                    }
                 });
             });
         }

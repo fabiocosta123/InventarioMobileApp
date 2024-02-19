@@ -53,5 +53,11 @@ public partial class MainViewModel : BaseViewModel
         }
     }
 
+    [RelayCommand]
+    public async Task PrimeiroAcesso()
+    {
+        await Shell.Current.GoToAsync($"{nameof(RegisterPage)}");
+    }
+
    
 }

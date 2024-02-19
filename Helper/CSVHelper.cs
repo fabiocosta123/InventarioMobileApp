@@ -9,7 +9,8 @@ namespace InventarioMobileApp.Helper
         {
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
-                Delimiter = ";",
+               
+                DetectDelimiter = true
             };
 
             using (var reader = new StreamReader(filePath))

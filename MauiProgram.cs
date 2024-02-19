@@ -51,6 +51,9 @@ public static class MauiProgram
 		builder.Services.AddTransient<DetailProductPage>();
         builder.Services.AddTransient<DetailProductViewModel>();
 
+		builder.Services.AddTransient<RegisterViewModel>();
+		builder.Services.AddTransient<RegisterPage>();
+
         builder.Services.AddSingleton<IPopupNavigation>(MopupService.Instance);
 
 		return builder.Build();

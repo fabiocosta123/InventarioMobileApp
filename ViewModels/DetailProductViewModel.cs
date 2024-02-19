@@ -30,12 +30,14 @@ namespace InventarioMobileApp.ViewModels
             Model.qtd = QuantidadeAtual;
             _repository.Update(Model);
             await Shell.Current.DisplayAlert("Salvo", "Item salvo com sucesso", "OK");
+            await Shell.Current.GoToAsync("..");
             
         }
 
         [RelayCommand]
         public async Task AlterarStatus()
         {
+            Model.status = "a";
             await Shell.Current.DisplayAlert("Alterado", "Item marcado com sucesso", "OK");
         }
     }

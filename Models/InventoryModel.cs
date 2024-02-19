@@ -1,8 +1,11 @@
-﻿namespace InventarioMobileApp.Models
+﻿using LiteDB;
+
+namespace InventarioMobileApp.Models
 {
     public class InventoryModel
     {
         public string cnpj { get; set; }
+        [BsonId]
         public string Ean { get; set; }
         public string Descricao { get; set; }
         public decimal qtd { get; set; }

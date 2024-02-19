@@ -8,11 +8,13 @@
     x:DataType="viewModel:HomeViewModel"
     BackgroundColor="Black">
 
-    <VerticalStackLayout HorizontalOptions="Center" Margin="0,50">
+    <VerticalStackLayout Margin="0,50" HorizontalOptions="Center">
 
-        <Label Text="Dúvidas, entre em contato com nosso suporte"
-               TextColor="White" HorizontalOptions="Center"
-               Margin="0,50"/>
+        <Label
+            Margin="0,50"
+            HorizontalOptions="Center"
+            Text="Dúvidas, entre em contato com nosso suporte"
+            TextColor="White" />
 
         <Grid HorizontalOptions="Start">
             <Grid.RowDefinitions>
@@ -24,37 +26,49 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            
-            <Image Grid.Column="0"
-                   Grid.Row="0"
+
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
                 Margin="10,0"
                 HorizontalOptions="End"
                 Source="whats.png"
                 WidthRequest="32" />
 
-            <Label Grid.Column="1"
-                   Grid.Row="0"
-                   Text="(13) 99714-6832"
-                   TextColor="White"
-                   HorizontalOptions="Start"/>
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalOptions="Start"
+                Text="(13) 99714-6832"
+                TextColor="White" />
 
 
-            <Image Grid.Column="0"
-                   Grid.Row="1"
+            <Image
+                Grid.Row="1"
+                Grid.Column="0"
                 Margin="10,10"
                 HorizontalOptions="End"
                 Source="phone.png"
                 WidthRequest="32" />
 
-            <Label Grid.Column="1"
+            <Label
                 Grid.Row="1"
-                Text="(13) 3821-2285"
-                TextColor="White"
+                Grid.Column="1"
+                Margin="0,15"
                 HorizontalOptions="Start"
-                   Margin="0,15"/>
+                Text="(13) 3821-2285"
+                TextColor="White" />
         </Grid>
-       
-        <Image Margin="10,0" Source="logo.jpg" />
+
+        <Image Margin="10,30" Source="logo.jpg" />
+
+
+        <Button
+            Margin="0,100"
+            BackgroundColor="White"
+            Command="{Binding ReadBarCodeCommand}"
+            Text="Ler código de barras"
+            TextColor="Black" />
 
 
     </VerticalStackLayout>

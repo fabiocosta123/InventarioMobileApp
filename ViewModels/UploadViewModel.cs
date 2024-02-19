@@ -36,6 +36,11 @@ namespace InventarioMobileApp.ViewModels
             string fileContent = File.ReadAllText(filePath);
 
             var result = await _repository.UploadAsync(filePath);
+
+            if (result)
+            {
+                await Shell.Current.DisplayAlert("SUCESSO", "Arquivo enviado com sucesso", "OK");
+            }
         }
     }
 }

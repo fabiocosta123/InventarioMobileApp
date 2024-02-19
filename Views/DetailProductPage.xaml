@@ -24,16 +24,26 @@
             IsReadOnly="True"
             Text="{Binding Model.valor}" />
 
-        <HorizontalStackLayout>
-            <ImageButton
-                Command="{Binding SalvarCommand}"
+        <Grid ColumnDefinitions="*,*">
+            <Image
                 HeightRequest="32"
-                Source="confirm.svg" />
-            <ImageButton
-                Command="{Binding AlterarStatusCommand}"
+                HorizontalOptions="Center"
+                Source="confirm.svg">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SalvarCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Image
+                Grid.Column="1"
                 HeightRequest="32"
-                Source="editar.svg" />
-        </HorizontalStackLayout>
+                Source="editar.svg">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AlterarStatusCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+
+
 
     </VerticalStackLayout>
 </ContentPage>

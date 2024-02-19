@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="InventarioMobileApp.Views.MainPage"
+    x:Class="InventarioMobileApp.Views.RegisterPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:fa="clr-namespace:UraniumUI.Icons.FontAwesome;assembly=UraniumUI.Icons.FontAwesome"
@@ -8,14 +8,10 @@
     xmlns:m="clr-namespace:UraniumUI.Icons.MaterialIcons;assembly=UraniumUI.Icons.MaterialIcons"
     xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
     xmlns:validation="clr-namespace:InputKit.Shared.Validations;assembly=InputKit.Maui"
-    xmlns:vm="clr-namespace:InventarioMobileApp.ViewModels"
-    x:DataType="vm:MainViewModel"
-    Shell.NavBarIsVisible="False">
-
+    Title="Registar Usuário">
     <VerticalStackLayout Padding="20" VerticalOptions="Center">
 
-        <Image WidthRequest="80" Source="user.png">
-            
+        <Image WidthRequest="80" Source="adduser.png">
             <!--<Image.Source>
                 <FontImageSource
                     FontFamily="FASolid"
@@ -25,7 +21,7 @@
         </Image>
 
 
-        <input:FormView Spacing="15" SubmitCommand="{Binding LoginCommand}">
+        <input:FormView Spacing="15" SubmitCommand="{Binding RegisterCommand}">
             <material:TextField
                 Title="E-mail"
                 AllowClear="True"
@@ -50,22 +46,17 @@
                 <validation:RequiredValidation Message="Senha é obrigatório" />
             </material:TextField>
 
-            <!--<Button
-                input:FormView.IsSubmitButton="True"
-                FontAttributes="Bold"
-                Text="LOGIN"
-                BackgroundColor="Blue"
-                TextColor="White"/>-->
+
 
             <Grid>
                 <Button
                     input:FormView.IsSubmitButton="True"
                     BackgroundColor="Blue"
-                    Text="Entrar"
+                    Text="Registrar"
                     TextColor="White">
                     <Button.Triggers>
                         <DataTrigger
-                            Binding="{Binding LoginCommand.IsRunning}"
+                            Binding="{Binding RegisterCommand.IsRunning}"
                             TargetType="Button"
                             Value="True">
                             <Setter Property="Text" Value="" />
@@ -77,18 +68,14 @@
 
                 <ActivityIndicator
                     HorizontalOptions="Center"
-                    IsRunning="{Binding LoginCommand.IsRunning}"
-                    IsVisible="{Binding LoginCommand.IsRunning}"
+                    IsRunning="{Binding RegisterCommand.IsRunning}"
+                    IsVisible="{Binding RegisterCommand.IsRunning}"
                     VerticalOptions="Center"
                     Color="{StaticResource Primary}" />
 
             </Grid>
 
-            <Button
-                BackgroundColor="White"
-                Command="{Binding PrimeiroAcessoCommand}"
-                Text="1º Acesso, clique aqui"
-                TextColor="Blue" />
+
         </input:FormView>
 
     </VerticalStackLayout>

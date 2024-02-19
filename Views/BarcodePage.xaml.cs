@@ -12,19 +12,20 @@ public partial class BarcodePage : ContentPage
 
     private async void cameraBarcodeReaderView_BarcodesDetected(object sender, ZXing.Net.Maui.BarcodeDetectionEventArgs e)
     {
-        cameraBarcodeReaderView.IsDetecting = false;
+       
         foreach (var barcode in e.Results)
         {
+            //cameraBarcodeReaderView.IsDetecting = false;
             Console.WriteLine($"Barcodes: {barcode.Format} -> {barcode.Value}");
             WeakReferenceMessenger.Default.Send<string>(barcode.Value);
-            Shell.Current.GoToAsync("..");
+           
         }
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
-
+        cameraBarcodeReaderView.IsDetecting = true;
         cameraBarcodeReaderView.Options = new ZXing.Net.Maui.BarcodeReaderOptions
         {
             Formats = ZXing.Net.Maui.BarcodeFormat.Ean13
@@ -35,5 +36,11 @@ public partial class BarcodePage : ContentPage
 
         };
 
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        cameraBarcodeReaderView.IsDetecting = false;
     }
 }

@@ -6,5 +6,8 @@ namespace InventarioMobileApp.Repositories.Contract
     public interface ILoginRepository
     {
         Task<LoginResponse> LoginAsync(LoginRequest loginRequest);
+        Task<bool> RegisterAsync(RegisterRequest registerRequest);
     }
+
+    
 }

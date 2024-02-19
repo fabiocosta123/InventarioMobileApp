@@ -48,15 +48,6 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="Cod. Barras" Icon="leitorcodbarras.png">
-        <Tab>
-            <ShellContent
-                ContentTemplate="{DataTemplate views:BarcodePage}"
-                Route="BarcodePage"
-                Shell.NavBarIsVisible="true" />
-
-        </Tab>
-    </FlyoutItem>
 
 
 

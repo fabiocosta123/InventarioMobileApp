@@ -31,5 +31,25 @@ namespace InventarioMobileApp.Repositories.Implementation
 
             return new();
         }
+
+        public async Task<bool> RegisterAsync(RegisterRequest registerRequest)
+        {
+            try
+            {
+                var result = await AppConstant.BaseUrl
+               .AppendPathSegment("/identity/register")
+               .PostJsonAsync(registerRequest);
+
+                return result.ResponseMessage.IsSuccessStatusCode;
+               
+               
+            }
+            catch (Exception ex)
+            {
+                var msg = ex.Message;
+                throw;
+            }
+
+        }
     }
 }
